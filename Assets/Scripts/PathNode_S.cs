@@ -1,32 +1,66 @@
 using Configuration;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class PathNode_S : MonoBehaviour
 {
 		[SerializeField]
-		GameObject NextNode;
+		Transform NextNode;
 
-		Transform nextNodeTransform;
+		[SerializeField]
+		bool IsSpawner;
+
+		[SerializeField]
+		bool IsEnd;
+
+		[SerializeField]
+		double SpawnInterval;
+
+		Timer spawnTimer;
+		bool mustSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
-				nextNodeTransform = NextNode.transform;
+				spawnTimer = new Timer(SpawnInterval);
+				spawnTimer.Elapsed += _SpawnTimer_Elapsed;
     }
 
-    // Update is called once per frame
-    void Update()
+		private void _SpawnTimer_Elapsed(object sender, ElapsedEventArgs e)
+		{
+				mustSpawn = true;
+		}
+
+		// Update is called once per frame
+		void Update()
     {
-        
+        if (IsSpawner && mustSpawn)
+				{
+						
+						mustSpawn = false;
+				}
     }
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-				if (collision.CompareTag(Config.OpponentTag))
+				if (!IsSpawner)
 				{
-						collision.gameObject.GetComponent<Opponent_S>().NextNodeTransform = nextNodeTransform;
+						GameObject collidedObject = collision.gameObject;
+
+						if (collidedObject.tag == Config.OpponentTag)
+						{
+								if (IsEnd)
+								{
+										Destroy(collidedObject);
+										//could trigger gameover method
+								}
+								else
+								{
+										collidedObject.GetComponent<Opponent_S>().NextNodeTransform = NextNode;
+								}
+						}
 				}
 		}
 }
