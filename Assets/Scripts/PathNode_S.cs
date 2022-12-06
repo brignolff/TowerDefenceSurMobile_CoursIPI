@@ -10,13 +10,16 @@ public class PathNode_S : MonoBehaviour
 		Transform NextNode;
 
 		[SerializeField]
-		bool IsSpawner;
-
-		[SerializeField]
 		bool IsEnd;
 
 		[SerializeField]
+		bool IsSpawner;
+
+		[SerializeField]
 		double SpawnInterval;
+
+		[SerializeField]
+		GameObject SpawnedObject;
 
 		Timer spawnTimer;
 		bool mustSpawn;
@@ -26,6 +29,8 @@ public class PathNode_S : MonoBehaviour
     {
 				spawnTimer = new Timer(SpawnInterval);
 				spawnTimer.Elapsed += _SpawnTimer_Elapsed;
+
+				spawnTimer.Start();
     }
 
 		private void _SpawnTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -38,7 +43,8 @@ public class PathNode_S : MonoBehaviour
     {
         if (IsSpawner && mustSpawn)
 				{
-						
+						GameObject opponent = Instantiate(SpawnedObject, this.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+						opponent.GetComponent<Opponent_S>().NextNodeTransform = NextNode;
 						mustSpawn = false;
 				}
     }
