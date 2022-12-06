@@ -66,9 +66,11 @@ public class Turret_S : MonoBehaviour
 
 								GameObject projectile = (GameObject)Instantiate(Projectile, this.transform.position, Quaternion.Euler(new Vector3(0, 0, angle + 90)));
 
-								float x = targettedOpponentTransform.position.x - transform.position.x;
-								float y = targettedOpponentTransform.position.y - transform.position.y;
-								projectile.GetComponent<Rigidbody2D>().velocity = new(x * ProjectileSpeedMultiplier, y * ProjectileSpeedMultiplier);
+								float radAngle = Mathf.Atan2(targettedOpponentTransform.position.y - transform.position.y, targettedOpponentTransform.position.x - transform.position.x);
+
+								double x = Math.Cos(radAngle);
+								double y = Math.Sin(radAngle);
+								projectile.GetComponent<Rigidbody2D>().velocity = new((float)x * ProjectileSpeedMultiplier, (float)y * ProjectileSpeedMultiplier);
 						}
 				}
     }
