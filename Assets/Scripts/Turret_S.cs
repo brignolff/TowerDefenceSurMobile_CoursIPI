@@ -1,3 +1,4 @@
+using Configuration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +10,6 @@ using Timer = System.Timers.Timer;
 
 public class Turret_S : MonoBehaviour
 {
-		const string OpponentTag = "Opponent";
-
 		[SerializeField]
 		public float RotationSpeed;
 
@@ -78,7 +77,7 @@ public class Turret_S : MonoBehaviour
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 				//detect entering opponent
-				if (collision.gameObject.tag == OpponentTag)
+				if (collision.gameObject.tag == Config.OpponentTag)
 				{
 						Opponent_S opponent = collision.gameObject.GetComponent<Opponent_S>();
 						opponents.Add(opponent);
@@ -96,7 +95,7 @@ public class Turret_S : MonoBehaviour
 		private void OnTriggerExit2D(Collider2D collision)
 		{
 				//detect exiting opponent
-				if (collision.gameObject.tag == OpponentTag)
+				if (collision.gameObject.tag == Config.OpponentTag)
 				{
 						Opponent_S opponent = collision.gameObject.GetComponent<Opponent_S>();
 						opponents.Remove(opponent);
@@ -110,6 +109,10 @@ public class Turret_S : MonoBehaviour
 						}
 						else //or not
 								targettedOpponentTransform = null;
+				}
+				else if (collision.gameObject.tag == Config.ProjectileTag)
+				{
+						Destroy(collision.gameObject);
 				}
 		}
 }

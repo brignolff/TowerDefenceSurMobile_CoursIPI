@@ -9,5 +9,7 @@ namespace Configuration
 		public static class Config
 		{
 				public static string OpponentTag = "Opponent";
+
+				public static string ProjectileTag = "Projectile";
 		}
 }

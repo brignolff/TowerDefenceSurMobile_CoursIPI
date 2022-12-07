@@ -12,6 +12,7 @@ public class Opponent_S : MonoBehaviour
 
 		// The target (cylinder) position.
 		public Transform NextNodeTransform;
+
 		public int id;
 
 		// Start is called before the first frame update
