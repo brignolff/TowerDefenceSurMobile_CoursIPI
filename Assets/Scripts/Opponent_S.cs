@@ -15,10 +15,12 @@ public class Opponent_S : MonoBehaviour
 
 		public int id;
 
+		private static int _id;
+
 		// Start is called before the first frame update
 		void Start()
     {
-        
+				id = _id++;
     }
 
     // Update is called once per frame
