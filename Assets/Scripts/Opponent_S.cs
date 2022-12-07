@@ -28,4 +28,13 @@ public class Opponent_S : MonoBehaviour
 				var step = speed * Time.deltaTime; // calculate distance to move
 				transform.position = Vector3.MoveTowards(transform.position, NextNodeTransform.position, step);
 		}
+
+		private void OnTriggerEnter2D(Collider2D collision)
+		{
+				if (collision.gameObject.tag == Config.ProjectileTag)
+				{
+						Destroy(collision.gameObject);
+						Destroy(gameObject);
+				}
+		}
 }
