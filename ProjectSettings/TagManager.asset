@@ -3,13 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Opponent
+  tags: [Opponent]
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PathNodes
   - Water
   - UI
   - 
