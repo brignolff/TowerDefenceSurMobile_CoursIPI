@@ -1190,8 +1190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameScene:
     m_Handle: 0
-  Camera_Menu: {fileID: 0}
-  Camera_Game: {fileID: 0}
 --- !u!1 &2073089595
 GameObject:
   m_ObjectHideFlags: 0

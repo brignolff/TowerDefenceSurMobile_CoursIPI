@@ -15,5 +15,7 @@ namespace Configuration
 				public static int Score = StartingScore;
 
 				public static int StartingScore = 10;
+
+				public static float SoundLevel = 1;
 		}
 }

@@ -44,7 +44,7 @@ public class Opponent_S : MonoBehaviour
 		if (collision.gameObject.tag == Config.ProjectileTag)
 		{
 
-			AudioSource.PlayClipAtPoint(audioImpact, this.transform.position);
+			AudioSource.PlayClipAtPoint(audioImpact, this.transform.position,Config.SoundLevel);
 			Destroy(collision.gameObject);
 			Destroy(gameObject);
 		}

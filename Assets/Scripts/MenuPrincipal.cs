@@ -54,8 +54,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void SettingSound()
     {
-        SceneManager.LoadScene("Option_Menu");
-
+        SceneManager.LoadScene(4);
     }
 
     public void HighScore()

@@ -25,7 +25,7 @@ public class GameOverMenu : MonoBehaviour
 		{
 				string playerName = FindObjectsOfType<GameObject>().First(go => go.name == "NameInput").GetComponent<TMP_InputField>().text;
 
-				HighScoreManager._instance.SaveHighScore(name, Config.Score);
+				HighScoreManager._instance.SaveHighScore(playerName, Config.Score);
 
 				Config.Score = Config.StartingScore;
 

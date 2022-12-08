@@ -21,6 +21,7 @@ public class HighScoreMenu : MonoBehaviour
 		public void clearScore()
 		{
 				HighScoreManager._instance.ClearLeaderBoard();
+				mainMenu();
 		}
 
 		public void mainMenu()
