@@ -1,3 +1,4 @@
+using Configuration;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,9 +40,9 @@ public class MenuPrincipal : MonoBehaviour
     public void LauchGame()
     {
 
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+				//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-        
+				Config.Score = Config.StartingScore;
                SceneManager.LoadScene(1);
 
                 

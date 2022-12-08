@@ -12,10 +12,16 @@ namespace Configuration
 
 				public static string ProjectileTag = "Projectile";
 
-				public static int Score = StartingScore;
+				public static int Score;
 
 				public static int StartingScore = 10;
 
 				public static float SoundLevel = 1;
+
+				public static int StartingSpawnInterval = 3000;
+
+				public static int SpawnIntervalReductionPerDifficultyIncrease = 100;
+
+				public static int DifficultyIncreaseInterval = 10000;
 		}
 }
