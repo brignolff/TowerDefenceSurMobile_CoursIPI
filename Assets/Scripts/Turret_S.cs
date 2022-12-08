@@ -37,6 +37,9 @@ public class Turret_S : MonoBehaviour
 	public GameObject Turret;
 
 
+	
+
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -46,9 +49,10 @@ public class Turret_S : MonoBehaviour
 		spawnTimer.Elapsed += _SpawnTimer_Spawn;
 
 		spawnTimer.Start();
-	}
 
-	private void _SpawnTimer_Spawn(object sender, ElapsedEventArgs e)
+    }
+
+    private void _SpawnTimer_Spawn(object sender, ElapsedEventArgs e)
 	{
 		mustFire = true;
 	}
@@ -79,16 +83,18 @@ public class Turret_S : MonoBehaviour
 				GameObject projectile = (GameObject)Instantiate(Projectile, this.transform.position, Quaternion.Euler(new Vector3(0, 0, angle + 90)));
 
 				float radAngle = Mathf.Atan2(targettedOpponentTransform.position.y - transform.position.y, targettedOpponentTransform.position.x - transform.position.x);
-
+				 
 				double x = Math.Cos(radAngle);
 				double y = Math.Sin(radAngle);
 				projectile.GetComponent<Rigidbody2D>().velocity = new((float)x * ProjectileSpeedMultiplier, (float)y * ProjectileSpeedMultiplier);
 			}
 		}
 
-		if (Input.GetMouseButtonDown(0))
-		{
+		if (Input.GetMouseButtonDown(0) && Config.Score >= 5)
+		{	
 			Instantiate(Turret, Worldpos2D, Quaternion.identity);
+			Config.Score = Config.Score - 5;
+			Console.Write(Config.Score);
 		}
 	}
 
