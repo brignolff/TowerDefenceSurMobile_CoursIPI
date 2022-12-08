@@ -60,7 +60,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void HighScore()
     {
-        //TODO List avec highscore, autre scene ? 
+        SceneManager.LoadScene(2);
     }
 }
 
