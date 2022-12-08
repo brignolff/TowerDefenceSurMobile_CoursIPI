@@ -203,3 +203,4 @@ MonoBehaviour:
   SpawnInterval: 2000
   ProjectileSpeedMultiplier: 0
   Projectile: {fileID: 8384479307191734067, guid: 63f6e01769fc7ce46ab97516f436d02d, type: 3}
+  Turret: {fileID: 3023366704830734049}
