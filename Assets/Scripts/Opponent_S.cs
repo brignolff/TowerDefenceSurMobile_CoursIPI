@@ -35,6 +35,7 @@ public class Opponent_S : MonoBehaviour
 		{
 				if (collision.gameObject.tag == Config.ProjectileTag)
 				{
+						GetComponent<AudioSource>().Play();
 						Destroy(collision.gameObject);
 						Destroy(gameObject);
 				}
