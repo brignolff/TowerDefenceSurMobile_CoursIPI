@@ -11,5 +11,9 @@ namespace Configuration
 				public static string OpponentTag = "Opponent";
 
 				public static string ProjectileTag = "Projectile";
+
+				public static int Score = StartingScore;
+
+				public static int StartingScore = 10;
 		}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathNode_S : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class PathNode_S : MonoBehaviour
 								if (IsEnd)
 								{
 										Destroy(collidedObject);
-										//could trigger gameover method
+										SceneManager.LoadScene(3);
 								}
 								else
 								{

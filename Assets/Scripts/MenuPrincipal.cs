@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class MenuPrincipal : MonoBehaviour
 {
     public Scene GameScene;
-    public Camera Camera_Menu;
-    public Camera Camera_Game;
+    //public Camera Camera_Menu;
+    //public Camera Camera_Game;
 
 
 
@@ -16,16 +16,16 @@ public class MenuPrincipal : MonoBehaviour
     {
 
             
-            Camera_Menu.enabled = true;
-            Camera_Game.enabled = false;
+            //Camera_Menu.enabled = true;
+            //Camera_Game.enabled = false;
             Button Button = gameObject.GetComponent<Button>();
             Button.onClick.AddListener(baz);
         
     }
     void baz()
     {
-        Camera_Menu.enabled = !Camera_Menu.enabled;
-        Camera_Game.enabled = !Camera_Game.enabled;
+        //Camera_Menu.enabled = !Camera_Menu.enabled;
+        //Camera_Game.enabled = !Camera_Game.enabled;
     }
     
 
