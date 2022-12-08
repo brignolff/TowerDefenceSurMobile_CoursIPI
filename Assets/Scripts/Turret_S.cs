@@ -45,8 +45,9 @@ public class Turret_S : MonoBehaviour
 
 				spawnTimer.Elapsed += _SpawnTimer_Spawn;
 
-				spawnTimer.Start();
-		}
+		spawnTimer.Start();
+
+    }
 
 		private void _SpawnTimer_Spawn(object sender, ElapsedEventArgs e)
 		{
@@ -86,11 +87,13 @@ public class Turret_S : MonoBehaviour
 						}
 				}
 
-				if (Input.GetMouseButtonDown(0))
-				{
-						Instantiate(Turret, Worldpos2D, Quaternion.identity);
-				}
+		if (Input.GetMouseButtonDown(0) && Config.Score >= 5)
+		{	
+			Instantiate(Turret, Worldpos2D, Quaternion.identity);
+			Config.Score = Config.Score - 5;
+			Console.Write(Config.Score);
 		}
+	}
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{

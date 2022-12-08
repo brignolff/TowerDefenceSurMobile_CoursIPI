@@ -47,6 +47,7 @@ public class Opponent_S : MonoBehaviour
 			AudioSource.PlayClipAtPoint(audioImpact, this.transform.position,Config.SoundLevel);
 			Destroy(collision.gameObject);
 			Destroy(gameObject);
+			Config.Score++;
 		}
 	}
 }
