@@ -33,9 +33,7 @@ public class Turret_S : MonoBehaviour
 		[SerializeField]
 		public GameObject Projectile;
 
-		[SerializeField]
-		public GameObject Turret;
-
+		
 
 
 		// Start is called before the first frame update
@@ -58,13 +56,6 @@ public class Turret_S : MonoBehaviour
 		void Update()
 		{
 				//look at targetted opponent
-
-				Vector3 mousePos = Input.mousePosition;
-
-				mousePos.z = Camera.main.nearClipPlane;
-				Vector3 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
-				Vector2 Worldpos2D = new Vector2(Worldpos.x, Worldpos.y);
-
 				if (targettedOpponentTransform != null)
 				{
 						//look at targetted opponent
@@ -87,12 +78,7 @@ public class Turret_S : MonoBehaviour
 						}
 				}
 
-		if (Input.GetMouseButtonDown(0) && Config.Score >= 5)
-		{	
-			Instantiate(Turret, Worldpos2D, Quaternion.identity);
-			Config.Score = Config.Score - 5;
-			Console.Write(Config.Score);
-		}
+		
 	}
 
 		private void OnTriggerEnter2D(Collider2D collision)

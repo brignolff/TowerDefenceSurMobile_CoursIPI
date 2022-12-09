@@ -18,10 +18,10 @@ namespace Configuration
 
 				public static float SoundLevel = 1;
 
-				public static int StartingSpawnInterval = 3000;
+				public static double StartingSpawnInterval = 3000;
 
-				public static int SpawnIntervalReductionPerDifficultyIncrease = 100;
+				public static double SpawnIntervalReductionPerDifficultyIncrease = 1000;
 
-				public static int DifficultyIncreaseInterval = 10000;
+				public static double DifficultyIncreaseInterval = 5000;
 		}
 }

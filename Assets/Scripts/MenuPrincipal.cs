@@ -42,7 +42,7 @@ public class MenuPrincipal : MonoBehaviour
 
 				//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-				Config.Score = Config.StartingScore;
+				
                SceneManager.LoadScene(1);
 
                 
