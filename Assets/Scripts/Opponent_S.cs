@@ -6,20 +6,16 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Opponent_S : MonoBehaviour
 {
-	// Adjust the speed for the application.
+	// Adjust the mouvement speed.
 	[SerializeField]
 	float speed = 1.0f;
 
-	// The target (cylinder) position.
+	// The target position.
 	public Transform NextNodeTransform;
 	public GameObject Turret;
 
 	[SerializeField]
 	AudioClip audioImpact;
-
-	//faire un serializedfield (?)	
-	//audioclip (?)
-
 
 	public int id;
 
@@ -43,10 +39,11 @@ public class Opponent_S : MonoBehaviour
 	{
 		if (collision.gameObject.tag == Config.ProjectileTag)
 		{
-
 			AudioSource.PlayClipAtPoint(audioImpact, this.transform.position,Config.SoundLevel);
+
 			Destroy(collision.gameObject);
 			Destroy(gameObject);
+
 			Config.Score++;
 		}
 	}

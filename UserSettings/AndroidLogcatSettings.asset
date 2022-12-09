@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RF8R80K4M3F",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 19516,
+        "processId": 13832,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,12 @@
             "deviceId": "RF8R80K4M3F",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 19516,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8R80K4M3F",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 13832,
             "exited": false
         }
     ],
