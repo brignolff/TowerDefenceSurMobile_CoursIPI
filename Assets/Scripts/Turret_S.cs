@@ -2,6 +2,7 @@ using Configuration;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Timers;
 using Unity.VisualScripting;
@@ -30,7 +31,10 @@ public class Turret_S : MonoBehaviour
 		bool mustFire;
 
 		[SerializeField]
-		GameObject Projectile;
+		public GameObject Projectile;
+
+		
+
 
 		// Start is called before the first frame update
 		void Start()
@@ -39,8 +43,9 @@ public class Turret_S : MonoBehaviour
 
 				spawnTimer.Elapsed += _SpawnTimer_Spawn;
 
-				spawnTimer.Start();
-		}
+		spawnTimer.Start();
+
+    }
 
 		private void _SpawnTimer_Spawn(object sender, ElapsedEventArgs e)
 		{
@@ -49,9 +54,9 @@ public class Turret_S : MonoBehaviour
 
 		// Update is called once per frame
 		void Update()
-    {
+		{
 				//look at targetted opponent
-				if (targettedOpponentTransform != null) 
+				if (targettedOpponentTransform != null)
 				{
 						//look at targetted opponent
 						float angle = Mathf.Atan2(targettedOpponentTransform.position.y - transform.position.y, targettedOpponentTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
@@ -72,7 +77,9 @@ public class Turret_S : MonoBehaviour
 								projectile.GetComponent<Rigidbody2D>().velocity = new((float)x * ProjectileSpeedMultiplier, (float)y * ProjectileSpeedMultiplier);
 						}
 				}
-    }
+
+		
+	}
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{

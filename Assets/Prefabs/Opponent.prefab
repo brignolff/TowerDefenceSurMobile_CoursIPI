@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   NextNodeTransform: {fileID: 0}
+  audioImpact: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
   id: 0
 --- !u!50 &2519228590930563446
 Rigidbody2D:

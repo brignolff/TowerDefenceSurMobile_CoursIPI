@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathNode_S : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class PathNode_S : MonoBehaviour
 		[SerializeField]
 		bool IsSpawner;
 
-		[SerializeField]
 		double SpawnInterval;
 
 		[SerializeField]
@@ -24,14 +24,46 @@ public class PathNode_S : MonoBehaviour
 		Timer spawnTimer;
 		bool mustSpawn;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-				spawnTimer = new Timer(SpawnInterval);
-				spawnTimer.Elapsed += _SpawnTimer_Elapsed;
+		Timer DifficultyIncreaseTimer;
 
-				spawnTimer.Start();
+		// Start is called before the first frame update
+		void Start()
+    {
+				if (IsSpawner)
+				{
+						SpawnInterval = Config.StartingSpawnInterval;
+
+						spawnTimer = new Timer(SpawnInterval);
+						spawnTimer.Elapsed += _SpawnTimer_Elapsed;
+
+						spawnTimer.Start();
+
+						DifficultyIncreaseTimer = new(Config.DifficultyIncreaseInterval);
+						DifficultyIncreaseTimer.Elapsed += _DifficultyIncreaseTimer_Elapsed;
+
+						DifficultyIncreaseTimer.Start();
+				}
     }
+
+		private void _DifficultyIncreaseTimer_Elapsed(object sender, ElapsedEventArgs e)
+		{
+				double reduction;
+
+				if (SpawnInterval <= Config.SpawnIntervalReductionPerDifficultyIncrease)
+				{
+						reduction = Config.DifficultyIncreaseInterval/Config.StartingSpawnInterval * SpawnInterval;
+				}
+				else
+				{
+						reduction = Config.SpawnIntervalReductionPerDifficultyIncrease;
+				}
+
+				SpawnInterval -= reduction;
+
+				spawnTimer.Stop();
+				spawnTimer.Interval = SpawnInterval;
+				spawnTimer.Start();
+		}
 
 		private void _SpawnTimer_Elapsed(object sender, ElapsedEventArgs e)
 		{
@@ -60,7 +92,7 @@ public class PathNode_S : MonoBehaviour
 								if (IsEnd)
 								{
 										Destroy(collidedObject);
-										//could trigger gameover method
+										SceneManager.LoadScene(3);
 								}
 								else
 								{
